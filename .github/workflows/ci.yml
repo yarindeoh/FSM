@@ -60,7 +60,7 @@ jobs:
       - run: npm ci --legacy-peer-deps
       - uses: nrwl/nx-set-shas@v4
 
-      - run: npx nx release --skip-publish --first-release
+      - run: npx nx release --skip-publish
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
