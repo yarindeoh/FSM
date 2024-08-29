@@ -28,12 +28,18 @@ jobs:
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build app1
+        run: |
+           nx build package1
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: 'dist/pacakge1'
           
       - name: Deploy to GitHub Pages
         id: deployment
