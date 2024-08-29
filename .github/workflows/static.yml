@@ -29,12 +29,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci --legacy-peer-deps
+      - uses: nrwl/nx-set-shas@v4
         
       - name: Build app1
         run: |
-           nx build package1
+           npx nx build package1
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
