@@ -1,0 +1,7 @@
+{
+  "name": "@react-monorepo/package1",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true
+}
