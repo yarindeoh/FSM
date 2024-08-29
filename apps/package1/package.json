@@ -1,7 +1,6 @@
 {
   "name": "@react-monorepo/package1",
   "version": "0.0.4",
-  "homepage": "https://yarindeoh.github.io/FSM",
   "license": "MIT",
   "scripts": {},
   "private": true
