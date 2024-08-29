@@ -5,6 +5,7 @@ const StyledApp = styled.div`
 `;
 
 export function App() {
+  console.log('deploy here');
   return (
     <StyledApp>
       <h1>Welcome</h1>
