@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FSMConfig } from '../FSM/types';
 import { customFetch } from '../api/config';
 
-export const useFetchConfig = (fetchUrl: string, fetchClient = customFetch) => {
+export const useFetchConfig = (fetchUrl: string, fetchClient = fetch) => {
   const [config, setConfig] = useState<FSMConfig | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,10 @@ export const useFetchConfig = (fetchUrl: string, fetchClient = customFetch) => {
       try {
         const res = await fetchClient(fetchUrl);
         if (!res.ok) {
-          throw new Error('Network response was not ok');
+          const fallbackRes = await customFetch('/api/config?pipelineId=1');
+          if (!fallbackRes.ok) {
+            throw new Error('Network response was not ok');
+          }
         }
         const data = await res.json();
         setConfig(data);

@@ -2,10 +2,13 @@ import React, { useEffect } from 'react';
 import { Pipeline } from './Pipeline';
 import { useFSM } from '../hooks/useFSM';
 import { useFetchConfig } from '../hooks/useFetchConfig';
+import { BASE_URL } from '../api/consts';
 
 export const DeterministicPipeline = () => {
   const { state, onTransition, setConfig } = useFSM();
-  const { config, loading, error } = useFetchConfig('/api/config?pipelineId=1');
+  const { config, loading, error } = useFetchConfig(
+    `${BASE_URL}/api/config?pipelineId=1`
+  );
 
   useEffect(() => {
     if (config) {
@@ -15,7 +18,7 @@ export const DeterministicPipeline = () => {
 
   // TODO:: handle loading and error states in beautiful components
   return (
-    <div>
+    <>
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {config && (
@@ -26,6 +29,6 @@ export const DeterministicPipeline = () => {
           states={config.states}
         />
       )}
-    </div>
+    </>
   );
 };
