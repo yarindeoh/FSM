@@ -2,12 +2,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/pipeline',
-  plugins: [react(), nxViteTsPaths(), mockDevServerPlugin()],
+  plugins: [react(), nxViteTsPaths()],
   server: {
     port: 4200,
     host: 'localhost',
