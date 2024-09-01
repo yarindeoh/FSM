@@ -57,7 +57,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - run: npx nx release --skip-publish --first-release
+      - run: npx nx release --skip-publish
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
