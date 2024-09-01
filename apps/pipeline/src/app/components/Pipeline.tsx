@@ -39,10 +39,12 @@ const StyledPipelineWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #010409;
+  gap: ${(props) => props.theme.spacing.md};
+  padding: ${(props) => props.theme.spacing.lg};
+  background-color: ${(props) => props.theme.color.secondary};
   height: 300px;
-  border: 1px solid #3d444d;
-  border-radius: 6px;
+  border: 1px solid ${(props) => props.theme.border.color};
+  border-radius: ${(props) => props.theme.border.radius};
 `;
 
 export const StyledJobsWrapper = styled.div`
@@ -52,6 +54,6 @@ export const StyledJobsWrapper = styled.div`
 `;
 
 const StyledPipelineHeader = styled.div`
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: ${(props) => props.theme.font.lg};
+  margin-bottom: ${(props) => props.theme.spacing.md};
 `;

@@ -46,13 +46,13 @@ const StyledJob = styled.div<{ isCurrent: boolean }>`
   height: 100px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: ${(props) => props.theme.spacing.md};
   justify-content: center;
   align-items: center;
-  background-color: #151b23;
-  border-radius: 6px;
-  color: ${({ isCurrent }) => (isCurrent ? 'white' : '#91989F')};
+  background-color: ${(props) => props.theme.color.primary};
+  border-radius: ${(props) => props.theme.border.radius};
+  color: ${({ isCurrent, theme }) => (isCurrent ? theme.color.info : theme.color.contrastLow )};
   border: 1px solid
-    ${({ isCurrent }) => (isCurrent ? 'white' : '#3d444d')};
+    ${({ isCurrent, theme }) => (isCurrent ? theme.color.info : theme.border.color)};
   pointer-events: ${({ isCurrent }) => (isCurrent ? 'auto' : 'none')};
 `;

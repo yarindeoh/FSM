@@ -10,13 +10,13 @@ const StyledIcon = styled.div`
   ::after {
     position: absolute;
     content: '';
-    background-color: #161b22;
+    background-color: ${props => props.theme.color.primary};
   }
 `;
 
 export const StyledIconFailure = styled(StyledIcon)`
    {
-    background: #f85149;
+    background: ${props => props.theme.color.failure};
   }
   ::before {
     width: 3px;
@@ -33,7 +33,7 @@ export const StyledIconFailure = styled(StyledIcon)`
 `;
 export const StyledIconSuccess = styled(StyledIcon)`
    {
-    background: #3fb950;
+    background: ${props => props.theme.color.success};
   }
   :before {
     width: 3px;

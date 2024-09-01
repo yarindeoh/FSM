@@ -15,7 +15,7 @@ export function createFSM(config: FSMConfig) {
     const eventHandler = currentStateConfig.on?.[event];
     if (!eventHandler) {
       console.warn(
-        `Event "${event}" is not defined for state "${currentState}"`
+        `Event "${event}" is not defined for state -> ${currentState}`
       );
       return;
     }
