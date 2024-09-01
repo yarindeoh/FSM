@@ -35,12 +35,12 @@ jobs:
 
       - name: Build app1
         run: |
-           npx nx build package1 --skip-nx-cache
+           npx nx build pipeline --skip-nx-cache
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/apps/package1'
+          path: 'dist/apps/pipeline'
 
       - name: Deploy to GitHub Pages
         id: deployment

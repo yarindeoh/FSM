@@ -63,7 +63,7 @@
   },
   "nxCloudAccessToken": "MTliZWUyNDktZmIzYi00MWU2LWIyNTktMzZhYzhmYzcxZTMwfHJlYWQtd3JpdGU=",
   "release": {
-    "projects": ["apps/package1"],
+    "projects": ["apps/pipeline"],
     "version": {
       "conventionalCommits": true
     },

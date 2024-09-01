@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/package1',
+  cacheDir: '../../node_modules/.vite/apps/pipeline',
 
   server: {
     port: 4200,
@@ -20,7 +20,7 @@ export default defineConfig({
   plugins: [react(), nxViteTsPaths()],
   base: '/FSM/',
   build: {
-    outDir: '../../dist/apps/package1',
+    outDir: '../../dist/apps/pipeline',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
