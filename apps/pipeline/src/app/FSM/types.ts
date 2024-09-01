@@ -3,14 +3,16 @@ export type FSMState = string;
 
 export type StateConfig = {
   on: {
-    success?: () => string[];
-    failure?: () => string[];
+    success?: string[];
+    failure?: string[];
   };
 };
 
+export type States = { name: string; on: StateConfig['on'] }[];
+
 export type FSMConfig = {
   initialState: FSMState;
-  states: Map<string, StateConfig>;
+  states: States;
 };
 
 export type Event = 'success' | 'failure';
@@ -26,13 +28,13 @@ export interface PipelineProps {
   type: string;
   state: FSMState;
   onTransition: OnTransition;
-  states: Map<string, StateConfig>;
+  states: States;
 }
 
 export interface JobProps {
   isCurrent: boolean;
   displayName: string;
-  onSuccess?: () => void;
-  onFailure?: () => void;
+  onSuccess?: string[];
+  onFailure?: string[];
   onTransition: OnTransition;
 }

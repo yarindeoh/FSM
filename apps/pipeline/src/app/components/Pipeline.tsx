@@ -1,5 +1,5 @@
 import { Job } from './Job';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { PipelineProps } from '../FSM/types';
 import styled from 'styled-components';
 
@@ -9,22 +9,18 @@ export const Pipeline = ({
   state,
   states,
 }: PipelineProps) => {
-  const statesView = useMemo(
-    () => Array.from(states, ([name, value]) => ({ name, value })),
-    [states]
-  );
 
   return (
     <StyledPipelineWrapper data-testid={type}>
       <StyledPipelineHeader>{type} Manual Pipeline</StyledPipelineHeader>
       <StyledJobsWrapper>
-        {statesView.map((step, index) => (
+        {states.map((step, index) => (
           <div key={`${step}_${index}`}>
             <Job
               isCurrent={step.name === state}
               displayName={`${step.name}`}
-              onSuccess={step.value.on?.success}
-              onFailure={step.value.on?.failure}
+              onSuccess={step.on?.success}
+              onFailure={step.on?.failure}
               onTransition={onTransition}
             />
           </div>
@@ -41,6 +37,7 @@ const StyledPipelineWrapper = styled.div`
   justify-content: center;
   gap: ${(props) => props.theme.spacing.md};
   padding: ${(props) => props.theme.spacing.lg};
+  margin: ${(props) => props.theme.spacing.lg};
   background-color: ${(props) => props.theme.color.secondary};
   height: 300px;
   border: 1px solid ${(props) => props.theme.border.color};
