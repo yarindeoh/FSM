@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { ThemeProps, ThemeProvider } from 'styled-components';
+import { NonDeterministicPipeline } from './components/NonDeterministicPipeline';
 import { DeterministicPipeline } from './components/DeterministicPipeline';
-
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
+import { StyledRow } from './components/Pipeline';
 
 export function App() {
   return (
@@ -12,8 +13,13 @@ export function App() {
         <GlobalStyle />
         <StyledApp>
           <StyledHeader>CI Pipeline</StyledHeader>
+          <StyledInfoRow>
+            Each job in the pipeline can transitioned to success/failure, click
+            on each job to fulfill the pipeline
+          </StyledInfoRow>
           <StyledPipelines>
             <DeterministicPipeline />
+            <NonDeterministicPipeline />
           </StyledPipelines>
         </StyledApp>
       </ThemeProvider>
@@ -41,13 +47,17 @@ const StyledHeader = styled.div`
   font-size: ${(props) => props.theme.font.xl};
   justify-content: center;
   text-align: center;
-  margin: ${(props) => props.theme.spacing.md};
+  margin-top: ${(props) => props.theme.spacing.md};
 `;
 
 const StyledPipelines = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const StyledInfoRow = styled.div`
+    ${StyledRow};
 `;
 
 export default App;

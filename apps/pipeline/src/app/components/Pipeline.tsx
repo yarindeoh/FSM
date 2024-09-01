@@ -1,7 +1,7 @@
 import { Job } from './Job';
 import React from 'react';
 import { PipelineProps } from '../FSM/types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Pipeline = ({
   type,
@@ -9,7 +9,6 @@ export const Pipeline = ({
   state,
   states,
 }: PipelineProps) => {
-
   return (
     <StyledPipelineWrapper data-testid={type}>
       <StyledPipelineHeader>{type} Manual Pipeline</StyledPipelineHeader>
@@ -31,17 +30,21 @@ export const Pipeline = ({
   );
 };
 
-const StyledPipelineWrapper = styled.div`
+export const StyledRow = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: ${(props) => props.theme.spacing.md};
   padding: ${(props) => props.theme.spacing.lg};
   margin: ${(props) => props.theme.spacing.lg};
-  background-color: ${(props) => props.theme.color.secondary};
-  height: 300px;
   border: 1px solid ${(props) => props.theme.border.color};
   border-radius: ${(props) => props.theme.border.radius};
+`;
+
+export const StyledPipelineWrapper = styled.div`
+  ${StyledRow};
+  background-color: ${(props) => props.theme.color.secondary};
+  height: 200px;
 `;
 
 export const StyledJobsWrapper = styled.div`
