@@ -34,7 +34,6 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.color.info};
-
 `;
 
 const StyledHeader = styled.div`

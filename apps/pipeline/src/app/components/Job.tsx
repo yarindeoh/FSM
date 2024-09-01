@@ -51,8 +51,10 @@ const StyledJob = styled.div<{ isCurrent: boolean }>`
   align-items: center;
   background-color: ${(props) => props.theme.color.primary};
   border-radius: ${(props) => props.theme.border.radius};
-  color: ${({ isCurrent, theme }) => (isCurrent ? theme.color.info : theme.color.contrastLow )};
+  color: ${({ isCurrent, theme }) =>
+    isCurrent ? theme.color.info : theme.color.contrastLow};
   border: 1px solid
-    ${({ isCurrent, theme }) => (isCurrent ? theme.color.info : theme.border.color)};
+    ${({ isCurrent, theme }) =>
+      isCurrent ? theme.color.info : theme.border.color};
   pointer-events: ${({ isCurrent }) => (isCurrent ? 'auto' : 'none')};
 `;

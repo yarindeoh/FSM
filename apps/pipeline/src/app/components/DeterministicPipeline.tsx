@@ -1,29 +1,31 @@
-import React from 'react';
-import { useFSM } from '../FSM/useFSM';
+import React, { useEffect } from 'react';
 import { Pipeline } from './Pipeline';
-import { FSMConfig } from '../FSM/types';
-
-const deterministicConfig: FSMConfig = {
-  initialState: 'verification',
-  states: [
-    { name: 'verification', on: { success: ['quality'] } },
-    { name: 'quality', on: { success: ['build'], failure: ['review'] } },
-    { name: 'build', on: { success: ['publish'], failure: ['review'] } },
-    { name: 'publish', on: { success: ['deploy'], failure: ['review'] } },
-    { name: 'deploy', on: { success: ['done'], failure: ['review'] } },
-    { name: 'review', on: { success: ['done'] } },
-  ],
-};
+import { useFSM } from '../hooks/useFSM';
+import { useFetchConfig } from '../hooks/useFetchConfig';
 
 export const DeterministicPipeline = () => {
-  const { state, onTransition } = useFSM(deterministicConfig);
+  const { state, onTransition, setConfig } = useFSM();
+  const { config, loading, error } = useFetchConfig('/api/config?pipelineId=1');
 
+  useEffect(() => {
+    if (config) {
+      setConfig(config);
+    }
+  }, [setConfig, config]);
+
+  // TODO:: handle loading and error states in beautiful components
   return (
-    <Pipeline
-      type="Deterministic"
-      state={state}
-      onTransition={onTransition}
-      states={deterministicConfig.states}
-    />
+    <div>
+      {loading && <div>Loading...</div>}
+      {error && <div>Error: {error.message}</div>}
+      {config && (
+        <Pipeline
+          type="Deterministic"
+          state={state}
+          onTransition={onTransition}
+          states={config.states}
+        />
+      )}
+    </div>
   );
 };

@@ -1,10 +1,8 @@
 import { FSMConfig, Event } from './types';
 
-export function createFSM(config: FSMConfig) {
-  let currentState = config.initialState;
-  let states = new Map(
-    config.states.map((state) => [state.name, { on: state.on }])
-  ); // Create Map of states to prevent external mutations
+export function createFSM() {
+  let currentState = ''; // Current state of the FSM
+  let states = new Map(); // Create Map of states to prevent external mutations
 
   const transition = (event: Event): void => {
     const currentStateConfig = states.get(currentState);
@@ -26,12 +24,12 @@ export function createFSM(config: FSMConfig) {
     currentState = nextStates.length > 1 ? nextStates[1] : nextStates[0];
   };
 
-  const getState = (): string => currentState;
+  const getState = (): string | undefined => currentState;
 
   const setConfig = (newConfig: FSMConfig): void => {
     currentState = newConfig.initialState;
     states = new Map(
-      config.states.map((state) => [state.name, { on: state.on }])
+      newConfig.states.map((state) => [state.name, { on: state.on }])
     ); // to avoid external mutations
   };
 

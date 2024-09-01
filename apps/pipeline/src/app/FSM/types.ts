@@ -26,7 +26,7 @@ export type OnTransition = (event: Event) => void;
 
 export interface PipelineProps {
   type: string;
-  state: FSMState;
+  state?: FSMState;
   onTransition: OnTransition;
   states: States;
 }

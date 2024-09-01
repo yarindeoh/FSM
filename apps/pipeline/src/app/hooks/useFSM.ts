@@ -1,9 +1,9 @@
 import { useState, useRef, useCallback } from 'react';
-import { FSMConfig, Event } from './types';
-import { createFSM } from './FSM';
+import { FSMConfig, Event } from '../FSM/types';
+import { createFSM } from '../FSM/FSM';
 
-export const useFSM = (initialConfig: FSMConfig) => {
-  const fsmRef = useRef(createFSM(initialConfig));
+export const useFSM = () => {
+  const fsmRef = useRef(createFSM());
   const [state, setState] = useState(fsmRef.current.getState());
 
   const setConfig = useCallback((config: FSMConfig) => {
