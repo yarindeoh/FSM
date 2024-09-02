@@ -14,7 +14,7 @@ export function App() {
         <StyledHeader>CI Pipeline</StyledHeader>
         <StyledInfoRow>
           Each job in the pipeline can transitioned to success/failure, click on
-          each job to fulfill the pipeline
+          each job to fulfill the pipeline!
         </StyledInfoRow>
         <StyledPipelines>
           <DeterministicPipeline />
