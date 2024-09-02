@@ -5,8 +5,11 @@ import { DeterministicPipeline } from './components/DeterministicPipeline';
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import { StyledRow } from './components/Pipeline';
+import { fsm } from '@react-monorepo/fsm';
 
 export function App() {
+  const t = fsm();
+  console.log(t);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -57,7 +60,7 @@ const StyledPipelines = styled.div`
 `;
 
 const StyledInfoRow = styled.div`
-    ${StyledRow};
+  ${StyledRow};
 `;
 
 export default App;
