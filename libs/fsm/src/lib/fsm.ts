@@ -2,7 +2,7 @@ import { FSMConfig, Event } from './types';
 
 export function createFSM() {
   let currentState = '';
-  let states = new Map(); // Create Map of states to prevent external mutations
+  let states = new Map();
   console.log('createFSM');
   const transition = (event: Event): void => {
     const currentStateConfig = states.get(currentState);
