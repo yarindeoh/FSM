@@ -7,7 +7,7 @@ export function createFSM() {
     const currentStateConfig = states.get(currentState);
 
     if (!currentStateConfig) {
-      console.error(`State "${currentState}" is not defined in the FSM`);
+      console.error(`state "${currentState}" is not defined in the FSM`);
       return;
     }
 
