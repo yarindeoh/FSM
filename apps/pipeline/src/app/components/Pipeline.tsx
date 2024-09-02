@@ -44,13 +44,14 @@ export const StyledRow = css`
 export const StyledPipelineWrapper = styled.div`
   ${StyledRow};
   background-color: ${(props) => props.theme.color.secondary};
-  height: 200px;
+  display: flex;
 `;
 
 export const StyledJobsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 const StyledPipelineHeader = styled.div`
