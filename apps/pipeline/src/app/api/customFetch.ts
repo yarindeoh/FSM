@@ -2,18 +2,20 @@ import { FSMConfig } from '../FSM/types';
 
 export const staticDeterministicConfig: FSMConfig = {
   initialState: 'verification',
+  type: 'Deterministic',
   states: [
     { name: 'verification', on: { success: ['quality'] } },
     { name: 'quality', on: { success: ['build'], failure: ['review'] } },
     { name: 'build', on: { success: ['publish'], failure: ['review'] } },
     { name: 'publish', on: { success: ['deploy'], failure: ['review'] } },
     { name: 'deploy', on: { success: ['done'], failure: ['review'] } },
-    { name: 'review', on: { success: ['done'] } },
+    { name: 'review', on: { success: ['error'] } },
   ],
 };
 
 export const staticNonDeterministicConfig: FSMConfig = {
   initialState: 'verification',
+  type: 'Non-deterministic',
   states: [
     {
       name: 'verification',
@@ -25,7 +27,7 @@ export const staticNonDeterministicConfig: FSMConfig = {
     { name: 'build', on: { success: ['publish'], failure: ['review'] } },
     { name: 'publish', on: { success: ['deploy'], failure: ['review'] } },
     { name: 'deploy', on: { success: ['done'], failure: ['review'] } },
-    { name: 'review', on: { success: ['done'] } },
+    { name: 'review', on: { success: ['error'] } },
   ],
 };
 

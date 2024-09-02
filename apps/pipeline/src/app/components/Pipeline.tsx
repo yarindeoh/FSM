@@ -8,24 +8,33 @@ export const Pipeline = ({
   onTransition,
   state,
   states,
+  error,
+  isLoading,
 }: PipelineProps) => {
   return (
     <StyledPipelineWrapper data-testid={type}>
-      <StyledPipelineHeader>{type} Manual Pipeline</StyledPipelineHeader>
-      <StyledJobsWrapper>
-        {states.map((step, index) => (
-          <div key={`${step}_${index}`}>
-            <Job
-              isCurrent={step.name === state}
-              displayName={`${step.name}`}
-              onSuccess={step.on?.success}
-              onFailure={step.on?.failure}
-              onTransition={onTransition}
-            />
-          </div>
-        ))}
-      </StyledJobsWrapper>
-      {state === 'done' && <div>Pipeline is DONE!</div>}
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error: {error.message}</div>}
+      {states && (
+        <>
+          <StyledPipelineHeader>{type} Manual Pipeline</StyledPipelineHeader>
+          <StyledJobsWrapper>
+            {states.map((step, index) => (
+              <div key={`${step}_${index}`}>
+                <Job
+                  isCurrent={step.name === state}
+                  isSuccess={state === 'done'}
+                  isError={state === 'error'}
+                  displayName={`${step.name}`}
+                  onSuccess={step.on?.success}
+                  onFailure={step.on?.failure}
+                  onTransition={onTransition}
+                />
+              </div>
+            ))}
+          </StyledJobsWrapper>
+        </>
+      )}
     </StyledPipelineWrapper>
   );
 };
