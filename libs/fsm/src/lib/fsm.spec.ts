@@ -20,7 +20,7 @@ describe('FSM Deterministic transitions', () => {
       THEN error for the undefined state should be logged`, () => {
     const consoleErrorMock = vi.spyOn(console, 'error').mockImplementation(() => {});
     fsm.transition('success');
-    expect(consoleErrorMock).toHaveBeenCalledWith('State "" is not defined in the FSM');
+    expect(consoleErrorMock).toHaveBeenCalledWith('state "" is not defined in the FSM');
     consoleErrorMock.mockRestore();
   });
 
