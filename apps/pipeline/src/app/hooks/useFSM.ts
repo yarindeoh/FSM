@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
-import { FSMConfig, Event } from '../FSM/types';
-import { createFSM } from '../FSM/FSM';
+import type { FSMConfig, Event } from '@react-monorepo/fsm';
+import { createFSM } from '@react-monorepo/fsm';
 
 export const useFSM = () => {
   const fsmRef = useRef(createFSM());

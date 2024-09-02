@@ -1,7 +1,16 @@
 import { Job } from './Job';
 import React from 'react';
-import { PipelineProps } from '../FSM/types';
 import styled, { css } from 'styled-components';
+import { FSMState, OnTransition, States } from '@react-monorepo/fsm';
+
+export interface PipelineProps {
+  type?: string;
+  state?: FSMState;
+  onTransition: OnTransition;
+  states?: States;
+  error: Error | null;
+  isLoading: boolean;
+}
 
 export const Pipeline = ({
   type,

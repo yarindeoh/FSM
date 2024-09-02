@@ -1,7 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { JobProps } from '../FSM/types';
+import { OnTransition } from '@react-monorepo/fsm';
 import { StyledIconFailure, StyledIconSuccess } from './StyledIcon';
+
+export interface JobProps {
+  isCurrent: boolean;
+  isSuccess?: boolean;
+  isError?: boolean;
+  displayName: string;
+  onSuccess?: string[];
+  onFailure?: string[];
+  onTransition: OnTransition;
+}
 
 export const Job = ({
   isCurrent,

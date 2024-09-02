@@ -22,24 +22,4 @@ export type Action = {
   type: Event;
 };
 
-// component types
 export type OnTransition = (event: Event) => void;
-
-export interface PipelineProps {
-  type?: string;
-  state?: FSMState;
-  onTransition: OnTransition;
-  states?: States;
-  error: Error | null,
-  isLoading: boolean
-}
-
-export interface JobProps {
-  isCurrent: boolean;
-  isSuccess?: boolean;
-  isError?: boolean;
-  displayName: string;
-  onSuccess?: string[];
-  onFailure?: string[];
-  onTransition: OnTransition;
-}

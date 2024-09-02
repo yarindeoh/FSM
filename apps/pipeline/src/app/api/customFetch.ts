@@ -1,4 +1,4 @@
-import { FSMConfig } from '../FSM/types';
+import type { FSMConfig } from '@react-monorepo/fsm';
 
 export const staticDeterministicConfig: FSMConfig = {
   initialState: 'verification',

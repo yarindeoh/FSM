@@ -5,28 +5,23 @@ import { DeterministicPipeline } from './components/DeterministicPipeline';
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import { StyledRow } from './components/Pipeline';
-import { fsm } from '@react-monorepo/fsm';
 
 export function App() {
-  const t = fsm();
-  console.log(t);
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <StyledApp>
-          <StyledHeader>CI Pipeline</StyledHeader>
-          <StyledInfoRow>
-            Each job in the pipeline can transitioned to success/failure, click
-            on each job to fulfill the pipeline
-          </StyledInfoRow>
-          <StyledPipelines>
-            <DeterministicPipeline />
-            <NonDeterministicPipeline />
-          </StyledPipelines>
-        </StyledApp>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <StyledApp>
+        <StyledHeader>CI Pipeline</StyledHeader>
+        <StyledInfoRow>
+          Each job in the pipeline can transitioned to success/failure, click on
+          each job to fulfill the pipeline
+        </StyledInfoRow>
+        <StyledPipelines>
+          <DeterministicPipeline />
+          <NonDeterministicPipeline />
+        </StyledPipelines>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 

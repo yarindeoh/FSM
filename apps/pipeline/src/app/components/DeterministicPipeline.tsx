@@ -5,9 +5,7 @@ import { useFetchConfig } from '../hooks/useFetchConfig';
 
 export const DeterministicPipeline = () => {
   const { state, onTransition, setConfig } = useFSM();
-  const { config, loading, error } = useFetchConfig(
-    '/api/config?pipelineId=1'
-  );
+  const { config, loading, error } = useFetchConfig('/api/config?pipelineId=1');
 
   useEffect(() => {
     if (config) {
