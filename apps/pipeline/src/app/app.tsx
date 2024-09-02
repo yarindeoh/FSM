@@ -7,7 +7,6 @@ import { theme } from './theme';
 import { StyledRow } from './components/Pipeline';
 
 export function App() {
-  console.log('App');
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

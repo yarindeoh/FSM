@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - run: npx nx affected -t test
+      - run: npx nx affected -t test --base=origin/main --head=HEAD --verbose
 #      - run: npx nx affected -t lint test build
 #      - run: npx nx affected --parallel 1 -t e2e-ci
 
