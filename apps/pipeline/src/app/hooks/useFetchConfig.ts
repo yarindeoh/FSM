@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FSMConfig } from '../FSM/types';
+import type { FSMConfig } from '@react-monorepo/fsm';
 import { customFetch } from '../api/customFetch';
 import { BASE_URL } from '../api/consts';
 
