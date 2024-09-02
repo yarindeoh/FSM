@@ -2,8 +2,5 @@
   "name": "@react-monorepo/pipeline",
   "version": "0.0.21",
   "license": "MIT",
-  "private": true,
-  "scripts": {
-    "test": "vitest"
-  }
+  "private": true
 }
