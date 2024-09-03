@@ -17,7 +17,7 @@ describe('Pipeline Component', () => {
     const props = {
       type: 'Deterministic',
       state: 'idle',
-      onTransition: () => {},
+      onTransition: vi.fn(),
       states: [],
       error: null,
       isLoading: true,
@@ -34,7 +34,7 @@ describe('Pipeline Component', () => {
     const props = {
       type: 'Deterministic',
       state: 'idle',
-      onTransition: () => {},
+      onTransition: vi.fn(),
       states: [],
       error: new Error('Something went wrong'),
       isLoading: false,
@@ -51,7 +51,7 @@ describe('Pipeline Component', () => {
     const props = {
       type: 'Deterministic',
       state: 'idle',
-      onTransition: () => {},
+      onTransition: vi.fn(),
       states: [],
       error: null,
       isLoading: false,
@@ -72,7 +72,7 @@ describe('Pipeline Component', () => {
     const props = {
       type: 'Deterministic',
       state: 'active',
-      onTransition: () => {},
+      onTransition: vi.fn(),
       states: [
         { name: 'idle', on: { success: ['active'] } },
         { name: 'active', on: {} },
@@ -99,5 +99,7 @@ describe('Pipeline Component', () => {
   });
   it(`GIVEN Pipeline component with failure states
       WHEN clicking on failure button
-      THEN review job should current and pipeline should be red`, () => {})
+      THEN review job should current and pipeline should be red`, () => {
+    // TODO:: implement
+  })
 });
