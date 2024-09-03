@@ -29,9 +29,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - run: npx nx run-many -t test
+      - uses: nrwl/nx-set-shas@v4
+
 #      - run: npx nx affected -t lint test build
-      - run: npx nx run-many --parallel 1 -t e2e
+      - run: npx nx run-many -t test
+
+      - run: npx nx run-many -t e2e
 
   create-tags:
     runs-on: ubuntu-latest
