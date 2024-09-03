@@ -131,30 +131,9 @@ describe('FSM Deterministic transitions', () => {
     expect(fsm.getState()).toBe('end');
   });
 
-  it(`GIVEN FSM is in a deterministic state
+  it(`GIVEN FSM has multiple states
       WHEN transitioning through events
-      THEN only one state should be active at a time`, () => {
-    const config: FSMConfig = {
-      initialState: 'idle',
-      type: 'Deterministic',
-      states: [
-        { name: 'idle', on: { success: ['active'] } },
-        { name: 'active', on: { success: ['done'] } },
-        { name: 'done', on: {} },
-      ],
-    };
-
-    fsm.setConfig(config);
-    expect(fsm.getState()).toBe('idle');
-    fsm.transition('success');
-    expect(fsm.getState()).toBe('active');
-    fsm.transition('success');
-    expect(fsm.getState()).toBe('done');
-  });
-
-  it(`GIVEN FSM has multiple states and events
-      WHEN transitioning through events
-      THEN states should transitioned from start and end in a final state`, () => {
+      THEN only one state should be active at a time until done`, () => {
     const config: FSMConfig = {
       initialState: 'idle',
       type: 'Deterministic',
