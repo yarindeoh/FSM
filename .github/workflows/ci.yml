@@ -26,9 +26,9 @@ jobs:
           node-version: 20
           cache: 'npm'
       
-      # - name: Install dependencies
-      #   run: |
-      #       npx playwright install-deps
+      - name: Install dependencies
+        run: |
+            npx playwright install-deps
 
       - name: Setup
         run: |
