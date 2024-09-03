@@ -25,20 +25,21 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      
-      - name: Install dependencies
+
+      - name: Setup
         run: |
             npx playwright install-deps
 
-      - name: Setup
+      - name: Install dependencies
         run: |
             npm ci
             npx playwright install
 
-#      - run: npx nx affected -t lint test build
-      - run: npx nx run-many -t test
+      - name: Tests & Lint
+        run: npx nx run-many -t test lint
 
-      - run: npx nx run-many -t e2e
+      - name: E2E tests
+        run: npx nx run-many -t e2e
 
   create-tags:
     runs-on: ubuntu-latest

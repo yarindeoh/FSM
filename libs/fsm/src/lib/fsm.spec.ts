@@ -18,9 +18,14 @@ describe('FSM Deterministic transitions', () => {
   it(`GIVEN FSM with no configuration
       WHEN transitioning with an undefined event
       THEN error for the undefined state should be logged`, () => {
-    const consoleErrorMock = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleErrorMock = vi
+      .spyOn(console, 'error')
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      .mockImplementation(() => {});
     fsm.transition('success');
-    expect(consoleErrorMock).toHaveBeenCalledWith('state "" is not defined in the FSM');
+    expect(consoleErrorMock).toHaveBeenCalledWith(
+      'state "" is not defined in the FSM'
+    );
     consoleErrorMock.mockRestore();
   });
 
@@ -37,9 +42,14 @@ describe('FSM Deterministic transitions', () => {
     };
 
     fsm.setConfig(config);
-    const consoleWarnMock = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const consoleWarnMock = vi
+      .spyOn(console, 'warn')
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      .mockImplementation(() => {});
     fsm.transition('failure');
-    expect(consoleWarnMock).toHaveBeenCalledWith('nextStates "undefined" is not defined for state -> idle');
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      'nextStates "undefined" is not defined for state -> idle'
+    );
     consoleWarnMock.mockRestore();
   });
 
@@ -75,8 +85,11 @@ describe('FSM Deterministic transitions', () => {
     fsm.transition('success');
     expect(fsm.getState()).toBe('active');
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const fsmInternal = fsm as any;
-    expect(fsmInternal.states?.set('test', { on: { success: ['newState'] } })).toBeUndefined();
+    expect(
+      fsmInternal.states?.set('test', { on: { success: ['newState'] } })
+    ).toBeUndefined();
 
     fsm.transition('success');
     expect(fsm.getState()).toBe('test');
