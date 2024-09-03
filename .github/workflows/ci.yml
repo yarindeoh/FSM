@@ -25,11 +25,15 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-
+      
       - name: Install dependencies
-        run: npm ci
+        run: |
+            npx playwright install-deps
 
-      - uses: nrwl/nx-set-shas@v4
+      - name: Setup
+        run: |
+            npm ci
+            npx playwright install
 
 #      - run: npx nx affected -t lint test build
       - run: npx nx run-many -t test
