@@ -8,8 +8,8 @@
 ## High Level Overview 
 
 - This project is hosting 2 main packages -> `fsm` and `pipeline`
-  - The FSM library is hosted in `/libs/fsm`
-  - The consuming app is hosted in `/apps/pipeline`
+  - The FSM library is hosted in [/libs/fsm](/libs/fsm)
+  - The consuming app is hosted in [/apps/pipeline](/apps/pipeline)
 - The use case to demonstrate FSM is CI pipeline flows
   - Deterministic - naive flow where each 'job' can transition to the next job (and depends on it), in case of a failure it moves to a review 'job'.
   - Non-Deterministic - more realistic flow where the state transition can be multiple options. Test sharding is a good example - tests can run in separated containers and outcome to the next success `job`.
