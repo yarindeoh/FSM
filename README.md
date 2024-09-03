@@ -34,7 +34,7 @@
 - Some Infra
   - When pushing code to `main` there is a CI verification that runs `test` `lint` and `e2e` for both packages.
   - In case it was verified it creates a git tag for `pipeline` app and release the package according to conventional commits(without actual publishing to npm)
-  - The application is deployed to Github Pages (you can find the link in the description).
+  - The [application](yarindeoh.github.io/FSM/) **is deployed to Github Pages** (also available in the repo description).
 
 ### Working locally
 
