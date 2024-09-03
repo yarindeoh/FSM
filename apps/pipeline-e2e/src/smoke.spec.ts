@@ -7,14 +7,13 @@ test('Deterministic Pipeline Smoke test - should change pipeline state', async (
   page,
 }) => {
   await page.goto('/');
-
-  // Expect clicking on success on each job to change the state to the next one.
+  await expect(page.getByTestId('Deterministic')).toBeVisible();
   await page.click('div[data-testid="current"] button');
   await page.click('div[data-testid="current"] button');
   await page.click('div[data-testid="current"] button');
   await page.click('div[data-testid="current"] button');
   await page.click('div[data-testid="current"] button');
-  expect(page.locator(':has-text("Pipeline is DONE!")')).toBeDefined();
+  await expect(page.getByTestId('done')).toBeVisible();
 });
 
 test('Non Deterministic Pipeline Smoke test - should change state', async ({

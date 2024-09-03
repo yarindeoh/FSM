@@ -21,12 +21,12 @@ export const Pipeline = ({
   isLoading,
 }: PipelineProps) => {
   return (
-    <StyledPipelineWrapper data-testid={type}>
+    <StyledPipelineWrapper data-testid={state}>
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {states && (
         <>
-          <StyledPipelineHeader>{type} Manual Pipeline</StyledPipelineHeader>
+          <StyledPipelineHeader data-testid={type}>{type} Manual Pipeline</StyledPipelineHeader>
           <StyledJobsWrapper>
             {states.map((step, index) => (
               <div key={`${step}_${index}`}>
