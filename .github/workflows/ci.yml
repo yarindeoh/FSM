@@ -31,7 +31,7 @@ jobs:
 
       - run: npx nx run-many -t test
 #      - run: npx nx affected -t lint test build
-      - run: npx nx run-many --parallel 1 -t e2e-ci
+      - run: npx nx run-many --parallel 1 -t e2e
 
   create-tags:
     runs-on: ubuntu-latest
