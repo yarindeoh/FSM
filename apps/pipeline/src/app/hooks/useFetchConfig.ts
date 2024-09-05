@@ -3,7 +3,7 @@ import type { FSMConfig } from '@react-monorepo/fsm';
 import { customFetch } from '../api/customFetch';
 import { BASE_URL } from '../api/consts';
 
-export const useFetchConfig = (fetchUrl: string, fetchClient = fetch) => {
+export const useFetchConfig = (fetchUrl: string, fetchClient: typeof fetch) => {
   const [config, setConfig] = useState<FSMConfig | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);

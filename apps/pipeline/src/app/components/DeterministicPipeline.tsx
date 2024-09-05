@@ -3,9 +3,16 @@ import { Pipeline } from './Pipeline';
 import { useFSM } from '../hooks/useFSM';
 import { useFetchConfig } from '../hooks/useFetchConfig';
 
-export const DeterministicPipeline = () => {
+export const DeterministicPipeline = ({
+  fetchClient,
+}: {
+  fetchClient: typeof fetch;
+}) => {
   const { state, onTransition, setConfig } = useFSM();
-  const { config, loading, error } = useFetchConfig('/api/config?pipelineId=1');
+  const { config, loading, error } = useFetchConfig(
+    '/api/config?pipelineId=1',
+    fetchClient
+  );
 
   useEffect(() => {
     if (config) {

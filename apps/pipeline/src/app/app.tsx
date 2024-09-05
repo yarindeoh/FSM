@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import { StyledRow } from './components/Pipeline';
 
-export function App() {
+export function App({ fetchClient = fetch }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -17,8 +17,8 @@ export function App() {
           each job to fulfill the pipeline!
         </StyledInfoRow>
         <StyledPipelines>
-          <DeterministicPipeline />
-          <NonDeterministicPipeline />
+          <DeterministicPipeline fetchClient={fetchClient} />
+          <NonDeterministicPipeline fetchClient={fetchClient} />
         </StyledPipelines>
       </StyledApp>
     </ThemeProvider>

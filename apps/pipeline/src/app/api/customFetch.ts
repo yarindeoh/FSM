@@ -32,7 +32,7 @@ export const staticNonDeterministicConfig: FSMConfig = {
 };
 
 export const customFetch = async (fetchUrl: string): Promise<Response> => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (fetchUrl === '/api/config?pipelineId=1') {
         resolve({
@@ -44,7 +44,9 @@ export const customFetch = async (fetchUrl: string): Promise<Response> => {
           ok: true,
           json: async () => staticNonDeterministicConfig,
         } as Response);
+      } else if (fetchUrl === '/api/config?pipelineId=3') {
+        reject(new Error('No pipeline found'));
       }
-    }, 2000);
+    }, 100);
   });
 };

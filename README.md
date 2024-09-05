@@ -71,7 +71,7 @@ npx nx e2e pipeline --ui
   - Loading skeleton
   - Error Component
   - Add Github font
-- Implement real component tests to a higher component level by intercepting http requests (I didn't wanted to implement it with mocking all layers)
+- Implement more robust component tests by intercepting http requests (I didn't wanted to implement it with mocking all layers)
 - If there will be a use case where the FSM needs to be used from outside I would publish it also as a standalone library and version control using git tags.
 - For future use cases it might be nice to extend the FSM events and or make it dynamic (instead of success/failure).
 - Automatic deploy to Github Pages (required some additional configuration)
