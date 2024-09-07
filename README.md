@@ -37,7 +37,10 @@
   - The [application](https://yarindeoh.github.io/FSM/) **is deployed to Github Pages** (also available in the repo description).
 
 ### Working locally
-
+- Install dependencies (node 20+)
+```
+npx npm install
+```
 - Start the `pipeline` application development server
 ```
 npx nx serve pipeline
@@ -50,7 +53,7 @@ npx nx run-many -t build
 
 - Test `pipeline` application and `fsm` library - unit & component tests
 ```
-npx nx run-many -t test
+npx nx test --project pipeline fsm
 ```
 
 - Lint `pipeline` application and `fsm` library 
@@ -60,7 +63,8 @@ npx nx run-many -t lint
 
 - Smoke tests for `pipeline` application
 ```
-npx nx e2e pipeline --ui
+npx playwright install
+npx nx e2e pipeline-e2e --ui
 ```
 
 
