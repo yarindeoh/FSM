@@ -66,7 +66,7 @@ npx nx e2e pipeline --ui
 
 ### What would I implement if I had infinite time? 
 - Implement a small node server that will serve the initial config and also make the application stateful by storing the current state on unmount 
-- Add caching to ensure the application will work also without a network connection
+- Add caching to the application
 - Improve styles
   - Loading skeleton
   - Error Component
